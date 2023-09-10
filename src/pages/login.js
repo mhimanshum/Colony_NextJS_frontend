@@ -1,24 +1,30 @@
 import React from 'react';
 
 function login() {
-  function submit(event) {
+  const submit = (event) => {
     event.preventDefault();
-    console.log(this);
-  }
+    console.log(event.target.email.value);
+    console.log(event.target.password.value);
+    console.log('Login Successfull');
+  };
   return (
-    <div className="bg-gray-400 h-screen w-screen ">
+    <div className="bg-gray-200 h-full w-full ">
       <div className="container mx-auto max-w-7xl">
         <form
           className="flex justify-center h-screen items-center"
           onSubmit={submit}
         >
-          <div className="bg-white w-1/3 shadow-md shadow-black rounded-md py-10 px-10">
+          <div className="bg-white w-1/3 shadow-md shadow-black rounded-md py-10 px-10 -mt-20 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:bg-white duration-300 ">
+            <h1 className="md:text-5xl text-2xl  font-serif font-semibold mb-5">
+              Login
+            </h1>
             <div className="flex flex-col gap-0.5 justify-center ">
               <label className="font-serif" htmlFor="email">
                 Email
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="Enter your email....."
                 className="rounded-sm w-full  border px-1 border-gray-300 focus:border-red-500 focus:outline-none py-2"
               />
@@ -29,6 +35,7 @@ function login() {
               </label>
               <input
                 type="password"
+                name="password"
                 placeholder="Enter your password....."
                 className=" rounded-sm w-full  border px-1 border-gray-300 focus:border-red-500 focus:outline-none py-2"
               />
